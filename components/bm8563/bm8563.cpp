@@ -22,7 +22,6 @@ void BM8563Component::dump_config() {
   if (this->is_failed()) {
     ESP_LOGE(TAG, "Communication with BM8563 failed!");
   }
-  ESP_LOGCONFIG(TAG, "  Timezone: '%s'", this->timezone_.c_str());
 }
 
 float BM8563Component::get_setup_priority() const { return setup_priority::DATA; }
