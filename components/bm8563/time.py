@@ -31,7 +31,7 @@ async def to_code(config):
 
 @automation.register_action('bm8563.write_time', WriteAction, automation.maybe_simple_id({
     cv.GenerateID(): cv.use_id(BM8563Component),
-}))
+}), synchronous=True)
 async def bm8563_write_time_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
     await cg.register_parented(var, config[CONF_ID])
@@ -40,7 +40,7 @@ async def bm8563_write_time_to_code(config, action_id, template_arg, args):
 
 @automation.register_action('bm8563.read_time', ReadAction, automation.maybe_simple_id({
     cv.GenerateID(): cv.use_id(BM8563Component),
-}))
+}), synchronous=True)
 async def bm8563_read_time_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
     await cg.register_parented(var, config[CONF_ID])
