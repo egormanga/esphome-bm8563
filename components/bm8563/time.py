@@ -29,7 +29,7 @@ async def to_code(config):
     await time.register_time(var, config)
 
 
-@automation.register_action('bm8563.write_time', WriteAction, cv.Schema({
+@automation.register_action('bm8563.write_time', WriteAction, automation.maybe_simple_id({
     cv.GenerateID(): cv.use_id(BM8563Component),
 }))
 async def bm8563_write_time_to_code(config, action_id, template_arg, args):
